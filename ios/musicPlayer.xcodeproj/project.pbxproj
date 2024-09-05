@@ -14,6 +14,16 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-musicPlayer-musicPlayerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-musicPlayer-musicPlayerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		537A3ED499FC470FA5915C58 /* Gilroy-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02562E54B1504DBAA85F9975 /* Gilroy-Black.ttf */; };
+		F35AFB92341849F9B513B980 /* Gilroy-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F085DEEAB18B4E90B9544D54 /* Gilroy-BlackItalic.ttf */; };
+		190FA2B1374C4A2A951EB2AB /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D27066965E17413FBD7F3923 /* Gilroy-Bold.ttf */; };
+		29F15D01B7D548C48B4B5ED9 /* Gilroy-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA7FDA1021B14EEEA020F9DD /* Gilroy-BoldItalic.ttf */; };
+		BBE2AB2EC3C24C9BA9FED84A /* Gilroy-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D361739209F42ADB84230F5 /* Gilroy-ExtraBold.ttf */; };
+		F9451D4362AE45E397C00E19 /* Gilroy-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB95297EBA5E4DC5A0543907 /* Gilroy-Light.ttf */; };
+		1AD1E1F358FE49D58A6A19D1 /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EA28BE95524E5C90065470 /* Gilroy-Medium.ttf */; };
+		83254FABF97D4B3490E3C969 /* Gilroy-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77BF36585A09449FA6238B32 /* Gilroy-RegularItalic.ttf */; };
+		4CDFC986380444E8BB1059EB /* Gilroy-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B0F9DA6815043E382DC5FCE /* Gilroy-SemiBold.ttf */; };
+		879BCE2E1947421DA0CDF5E2 /* Gilroy-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 344304549B704BE495D85F47 /* Gilroy-SemiBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +55,16 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = musicPlayer/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-musicPlayer-musicPlayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicPlayer-musicPlayerTests.release.xcconfig"; path = "Target Support Files/Pods-musicPlayer-musicPlayerTests/Pods-musicPlayer-musicPlayerTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		02562E54B1504DBAA85F9975 /* Gilroy-Black.ttf */ = {isa = PBXFileReference; name = "Gilroy-Black.ttf"; path = "../assets/fonts/Gilroy-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F085DEEAB18B4E90B9544D54 /* Gilroy-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Gilroy-BlackItalic.ttf"; path = "../assets/fonts/Gilroy-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D27066965E17413FBD7F3923 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; name = "Gilroy-Bold.ttf"; path = "../assets/fonts/Gilroy-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA7FDA1021B14EEEA020F9DD /* Gilroy-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Gilroy-BoldItalic.ttf"; path = "../assets/fonts/Gilroy-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8D361739209F42ADB84230F5 /* Gilroy-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Gilroy-ExtraBold.ttf"; path = "../assets/fonts/Gilroy-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BB95297EBA5E4DC5A0543907 /* Gilroy-Light.ttf */ = {isa = PBXFileReference; name = "Gilroy-Light.ttf"; path = "../assets/fonts/Gilroy-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		44EA28BE95524E5C90065470 /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; name = "Gilroy-Medium.ttf"; path = "../assets/fonts/Gilroy-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		77BF36585A09449FA6238B32 /* Gilroy-RegularItalic.ttf */ = {isa = PBXFileReference; name = "Gilroy-RegularItalic.ttf"; path = "../assets/fonts/Gilroy-RegularItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3B0F9DA6815043E382DC5FCE /* Gilroy-SemiBold.ttf */ = {isa = PBXFileReference; name = "Gilroy-SemiBold.ttf"; path = "../assets/fonts/Gilroy-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		344304549B704BE495D85F47 /* Gilroy-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Gilroy-SemiBoldItalic.ttf"; path = "../assets/fonts/Gilroy-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +144,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				FAE1845ADFC445ECA4BCDDAE /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +170,24 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		FAE1845ADFC445ECA4BCDDAE /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				02562E54B1504DBAA85F9975 /* Gilroy-Black.ttf */,
+				F085DEEAB18B4E90B9544D54 /* Gilroy-BlackItalic.ttf */,
+				D27066965E17413FBD7F3923 /* Gilroy-Bold.ttf */,
+				FA7FDA1021B14EEEA020F9DD /* Gilroy-BoldItalic.ttf */,
+				8D361739209F42ADB84230F5 /* Gilroy-ExtraBold.ttf */,
+				BB95297EBA5E4DC5A0543907 /* Gilroy-Light.ttf */,
+				44EA28BE95524E5C90065470 /* Gilroy-Medium.ttf */,
+				77BF36585A09449FA6238B32 /* Gilroy-RegularItalic.ttf */,
+				3B0F9DA6815043E382DC5FCE /* Gilroy-SemiBold.ttf */,
+				344304549B704BE495D85F47 /* Gilroy-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +284,16 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				537A3ED499FC470FA5915C58 /* Gilroy-Black.ttf in Resources */,
+				F35AFB92341849F9B513B980 /* Gilroy-BlackItalic.ttf in Resources */,
+				190FA2B1374C4A2A951EB2AB /* Gilroy-Bold.ttf in Resources */,
+				29F15D01B7D548C48B4B5ED9 /* Gilroy-BoldItalic.ttf in Resources */,
+				BBE2AB2EC3C24C9BA9FED84A /* Gilroy-ExtraBold.ttf in Resources */,
+				F9451D4362AE45E397C00E19 /* Gilroy-Light.ttf in Resources */,
+				1AD1E1F358FE49D58A6A19D1 /* Gilroy-Medium.ttf in Resources */,
+				83254FABF97D4B3490E3C969 /* Gilroy-RegularItalic.ttf in Resources */,
+				4CDFC986380444E8BB1059EB /* Gilroy-SemiBold.ttf in Resources */,
+				879BCE2E1947421DA0CDF5E2 /* Gilroy-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

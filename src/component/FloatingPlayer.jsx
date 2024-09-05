@@ -1,0 +1,92 @@
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {colors} from '../constants/color';
+import {fontSizes, spacing} from '../constants/dimensions';
+import {fontFamilies} from '../constants/fonts';
+import {
+  GoToForwardButton,
+  GoToPreviousButton,
+  PlayPauseButton,
+} from './playerControls';
+import {useSharedValue} from 'react-native-reanimated';
+import {Slider} from 'react-native-awesome-slider';
+const imgUrl =
+  'https://linkstorage.linkfire.com/medialinks/images/711c0296-c883-4444-9bd4-341dcab24d0b/artwork-440x440.jpg';
+
+const FloatingPlayer = () => {
+  const progress = useSharedValue(30);
+  const min = useSharedValue(0);
+  const max = useSharedValue(100);
+  return (
+    <View>
+      <View style={{zIndex: 1,}}>
+        <Slider
+          theme={{
+            // disableMinTrackTintColor: '#fff',
+            minimumTrackTintColor: colors.minimumTintcolor,
+            maximumTrackTintColor: colors.maximumTintcolor,
+            // cacheTrackTintColor: '#333',
+            // bubbleBackgroundColor: '#666',
+            // heartbeatColor: '#999',
+          }}
+          containerStyle={{
+
+          }}
+          style={styles.container}
+          progress={progress}
+          minimumValue={min}
+          maximumValue={max}
+        />
+      </View>
+      <TouchableOpacity style={styles.container} activeOpacity={0.85}>
+        <Image
+          source={{uri: imgUrl}}
+          style={styles.coverImg}
+          width={300}
+          height={300}
+        />
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Chaff and Dust</Text>
+          <Text style={styles.artist}>Alan Walker</Text>
+        </View>
+        <View style={styles.playerControlContainer}>
+          <GoToPreviousButton />
+          <PlayPauseButton />
+          <GoToForwardButton />
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default FloatingPlayer;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  coverImg: {
+    height: 60,
+    width: 60,
+    resizeMode: 'cover',
+  },
+  titleContainer: {
+    flex: 1,
+    paddingHorizontal: spacing.sm,
+  },
+  title: {
+    color: colors.textPrimary,
+    fontSize: fontSizes.lg,
+    fontFamily: fontFamilies.medium,
+  },
+  artist: {
+    color: colors.textSecondary,
+    fontSize: fontSizes.md,
+  },
+  playerControlContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 20,
+  },
+});
