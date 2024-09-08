@@ -13,7 +13,8 @@ const DrawerNavigator = () => {
     <Drawer.Navigator
     screenOptions={{
         headerShown: false,
-        drawerType: "slide"
+        drawerType: "slide",
+        // swipeEdgeWidth: 0,
     }}
     drawerContent={(props) => <CustomDrawerContent {...props} />}
     >

@@ -12,14 +12,18 @@ import {useSharedValue} from 'react-native-reanimated';
 import {Slider} from 'react-native-awesome-slider';
 import MovingText from './MovingText';
 import { useNavigation } from '@react-navigation/native';
+import TrackPlayer from 'react-native-track-player';
 const imgUrl =
   'https://linkstorage.linkfire.com/medialinks/images/711c0296-c883-4444-9bd4-341dcab24d0b/artwork-440x440.jpg';
 
 const FloatingPlayer = () => {
   const navigation = useNavigation();
-  const progress = useSharedValue(50);
+  const progress = useSharedValue(0);
   const min = useSharedValue(0);
-  const max = useSharedValue(100);
+  const max = useSharedValue(1);
+  const isSliding = useSharedValue(false);
+  const isLoading = useSharedValue(false);  // You can manage loading states
+  const duration = 300; // Define the track duration
   const handleOpenPlayerScreen = () =>{
 navigation.navigate("PLAYER_SCREEN")
   }
@@ -42,7 +46,20 @@ navigation.navigate("PLAYER_SCREEN")
         //     <Text>This is bubble</Text>
         //   </View>
         //   }
-          renderBubble={() => <View />}
+          // renderBubble={() => <View />}
+          renderBubble={() => null}
+          onSlidingStart={() => (isSliding.value = true)}
+          onValueChange={async (value) => {
+            await TrackPlayer.seekTo(value * duration);
+          }}
+          onSlidingComplete={async (value) => {
+            if(!isLoading.value) {
+              return;
+            }
+            isLoading.value = false;
+            await TrackPlayer.seekTo(value * duration);
+          }}
+          // thumbWidth={25}
         //   renderThumb={() => {
         //     <View style={{backgroundColor: 'red', height: 25, width: 25,}}></View>
         //   }}

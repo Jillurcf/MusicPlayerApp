@@ -8,12 +8,13 @@ import {fontSizes, spacing} from '../../constants/dimensions';
 import SongCard from '../../component/SongCard';
 import SongCardWithCategory from '../../component/SongCardWithCategory';
 import FloatingPlayer from '../../component/FloatingPlayer';
+import { songWithCategory } from '../../data/SongsWithCategory';
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Header />
-      <FlatList  data={[1, 2, 3, 4, 5,6,7]} renderItem={SongCardWithCategory}
+      <FlatList  data={songWithCategory} renderItem={SongCardWithCategory}
       contentContainerStyle={{
         paddingBottom: 400,
       }}

@@ -19,10 +19,15 @@ import { useNavigation } from '@react-navigation/native';
 const CustomDrawerContent = props => {
     const navigation = useNavigation();
   const isDarkMode = true;
+  const toggleDrawer = () => {
+    props.navigation.toggleDrawer();
+  }
+
+
   return (
     <DrawerContentScrollView style={styles.container}>
       <View style={styles.headerItemContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={toggleDrawer}>
           <AntDesign
             name={'close'}
             color={colors.iconPrimary}
