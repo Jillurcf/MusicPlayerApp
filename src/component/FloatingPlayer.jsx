@@ -10,13 +10,19 @@ import {
 } from './playerControls';
 import {useSharedValue} from 'react-native-reanimated';
 import {Slider} from 'react-native-awesome-slider';
+import MovingText from './MovingText';
+import { useNavigation } from '@react-navigation/native';
 const imgUrl =
   'https://linkstorage.linkfire.com/medialinks/images/711c0296-c883-4444-9bd4-341dcab24d0b/artwork-440x440.jpg';
 
 const FloatingPlayer = () => {
-  const progress = useSharedValue(30);
+  const navigation = useNavigation();
+  const progress = useSharedValue(50);
   const min = useSharedValue(0);
   const max = useSharedValue(100);
+  const handleOpenPlayerScreen = () =>{
+navigation.navigate("PLAYER_SCREEN")
+  }
   return (
     <View>
       <View style={{zIndex: 1,}}>
@@ -30,15 +36,23 @@ const FloatingPlayer = () => {
             // heartbeatColor: '#999',
           }}
           containerStyle={{
-
+            height: 5,
           }}
+        //   renderBubble={() => <View>
+        //     <Text>This is bubble</Text>
+        //   </View>
+        //   }
+          renderBubble={() => <View />}
+        //   renderThumb={() => {
+        //     <View style={{backgroundColor: 'red', height: 25, width: 25,}}></View>
+        //   }}
           style={styles.container}
           progress={progress}
           minimumValue={min}
           maximumValue={max}
         />
       </View>
-      <TouchableOpacity style={styles.container} activeOpacity={0.85}>
+      <TouchableOpacity style={styles.container} activeOpacity={0.85}  onPress={handleOpenPlayerScreen}>
         <Image
           source={{uri: imgUrl}}
           style={styles.coverImg}
@@ -46,7 +60,8 @@ const FloatingPlayer = () => {
           height={300}
         />
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Chaff and Dust</Text>
+          {/* <Text style={styles.title}>Chaff and Dust and Alan Walker</Text> */}
+          <MovingText text={"Chaff and Dust and Alan Walker"} animationThreshold={20} style={styles.title}/>
           <Text style={styles.artist}>Alan Walker</Text>
         </View>
         <View style={styles.playerControlContainer}>
@@ -74,6 +89,9 @@ const styles = StyleSheet.create({
   titleContainer: {
     flex: 1,
     paddingHorizontal: spacing.sm,
+    overflow: 'hidden',
+    marginLeft: spacing.sm,
+    marginRight: spacing.lg,
   },
   title: {
     color: colors.textPrimary,

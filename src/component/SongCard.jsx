@@ -5,11 +5,12 @@ import { fontFamilies } from '../constants/fonts'
 import { fontSizes, spacing } from '../constants/dimensions'
 const imgUrl = 
 "https://linkstorage.linkfire.com/medialinks/images/374fc4ba-fe39-4bcf-9cf0-74c87c879ed0/artwork-440x440.jpg"
-const SongCard = () => {
+
+const SongCard = ({containerStyle, imageStyle}) => {
   return (
-    <TouchableOpacity style={styles.container}>
-     <Image source={{uri: imgUrl}} style={styles.coverImg}/>
-     <Text style={styles.title}>Monstar Go Home</Text>
+    <TouchableOpacity style={[styles.container, containerStyle]}>
+     <Image source={{uri: imgUrl}} style={[styles.coverImg, imageStyle]}/>
+     <Text style={styles.title} numberOfLines={1}>Monstar Go Home addfd asdfdd addfd</Text>
      <Text style={styles.artist}>Alan Walker</Text>
     </TouchableOpacity>
   )
@@ -19,8 +20,8 @@ export default SongCard
 
 const styles = StyleSheet.create({
     container: {
-        width: 270,
-        height: 330,
+        // width: 270,
+        // height: 330,
     },
     coverImg: {
         width: 250,
