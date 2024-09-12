@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View, FlatList} from 'react-native';
 import React from 'react';
-import {colors} from '../../constants/color';
+// import {colors} from '../../constants/color';
 
 // icons
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -9,11 +9,46 @@ import {fontSizes, iconSizes, spacing} from '../../constants/dimensions';
 import {fontFamilies} from '../../constants/fonts';
 import SongCard from '../../component/SongCard';
 import FloatingPlayer from '../../component/FloatingPlayer';
+import useLikedSongs from '../../store/LikeStore';
+import {useNavigation, useTheme} from '@react-navigation/native';
+import TrackPlayer from 'react-native-track-player';
+
 const LikeScreen = () => {
+  const {colors} = useTheme();
+  const navigation = useNavigation();
+  const {likedSongs, addToLiked} = useLikedSongs();
+  const handleGoBack = () => {
+    navigation.goBack();
+  };
+
+  const handlePlayTrack = async (selectedTrack, songs = likedSongs) => {
+    // make a que and play the songWithCategory
+    console.log("25, click");
+  const trackIndex = songs.findIndex((track) => track.url === selectedTrack.url );
+  console.log(trackIndex);
+    // if track does not exist
+    if(trackIndex === -1) {
+      return;
+    }
+    const beforeTracks = songs.slice(0, trackIndex );
+    const afterTracks = songs.slice(trackIndex + 1);
+    console.log("beforeTracks", beforeTracks);
+    console.log("afterTracks", afterTracks);
+   
+  
+      await TrackPlayer.reset();
+      await TrackPlayer.add(selectedTrack);
+      await TrackPlayer.add(afterTracks);
+      await TrackPlayer.add(beforeTracks);
+      await TrackPlayer.play();
+      // Call the onSelect function to notify HomeScreen of the selected track
+      // onSelect(selectedTrack);
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleGoBack}>
           <AntDesign
             name={'arrowleft'}
             color={colors.iconPrimary}
@@ -31,15 +66,19 @@ const LikeScreen = () => {
       {/* <Text style={styles.headingText}>Liked Songs</Text> */}
       <FlatList
         ListHeaderComponent={
-          <Text style={styles.headingText}>Liked Songs</Text>
+          <Text style={[styles.headingText, { color: colors.textPrimary}]}>Liked Songs</Text>
         }
-        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
-        renderItem={() => (
+        data={likedSongs}
+        renderItem={({item}) => (
           <SongCard
             containerStyle={{width: '47%'}}
             imageStyle={{
               height: 160,
               width: 160,
+            }}
+            item={item}
+            handlePlay={(item) => {
+              handlePlayTrack(item)
             }}
           />
         )}
@@ -63,7 +102,7 @@ export default LikeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    
   },
   headerContainer: {
     flexDirection: 'row',
@@ -74,7 +113,7 @@ const styles = StyleSheet.create({
   },
   headingText: {
     fontSize: fontSizes.xl,
-    color: colors.textPrimary,
+   
     fontFamily: fontFamilies.bold,
     // padding: spacing.lg,
   },

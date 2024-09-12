@@ -9,3 +9,4 @@
 -https://excalidraw.com for draw example screen
 -https://www.npmjs.com/package/react-native-track-player for player
 -to create service.js at the root of the project
+-react-native logRocket -https://blog.logrocket.com/react-native-track-player-complete-guide/  is for next and previous and play pause in the play controller at the head of the app

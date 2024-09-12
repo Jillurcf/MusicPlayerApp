@@ -14,7 +14,13 @@ const setupPlayer = async () => {
             Capability.SkipToPrevious,
             Capability.Stop,
         ],
-        compactCapabilities: [Capability.Play, Capability.Pause],
+        compactCapabilities: [
+            Capability.Play,
+            Capability.Pause,
+            Capability.SkipToNext,
+            Capability.SkipToPrevious,
+            Capability.Stop,
+        ],
     });
     await TrackPlayer.setVolume(0.5);
     await TrackPlayer.setRepeatMode(RepeatMode.Queue);
@@ -31,4 +37,4 @@ export const useSetupTrackPlayer = ({onLoad}) => {
             console.log("error", error);
         });
     }, []);
-}
+};

@@ -5,7 +5,7 @@ import {
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {colors} from '../constants/color';
+// import {colors} from '../constants/color';
 import {fontSizes, spacing} from '../constants/dimensions';
 import {iconSizes} from './../constants/dimensions';
 
@@ -14,18 +14,21 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {fontFamilies} from '../constants/fonts';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
+import { useThemeStore } from '../store/ThemeStore';
 
 const CustomDrawerContent = props => {
+  const {isDarkMode, toggleTheme}= useThemeStore();
+  const {colors} = useTheme()
     const navigation = useNavigation();
-  const isDarkMode = true;
+  // const isDarkMode = true;
   const toggleDrawer = () => {
     props.navigation.toggleDrawer();
   }
 
 
   return (
-    <DrawerContentScrollView style={styles.container}>
+    <DrawerContentScrollView style={[styles.container, {backgroundColor: colors.background}]}>
       <View style={styles.headerItemContainer}>
         <TouchableOpacity onPress={toggleDrawer}>
           <AntDesign
@@ -34,7 +37,7 @@ const CustomDrawerContent = props => {
             size={iconSizes.lg}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => toggleTheme()}>
           <Octicons
             name={isDarkMode ? 'sun' : 'moon'}
             color={colors.iconPrimary}
@@ -53,7 +56,7 @@ const CustomDrawerContent = props => {
               color={colors.iconPrimary}
             />
           )}
-          labelStyle={styles.labelStyle}
+          labelStyle={[styles.labelStyle, {color: colors.textPrimary}]}
           style={styles.drawerItem}
         />
         <DrawerItem
@@ -65,7 +68,7 @@ const CustomDrawerContent = props => {
               color={colors.iconPrimary}
             />
           )}
-          labelStyle={styles.labelStyle}
+          labelStyle={[styles.labelStyle, {color: colors.textPrimary}]}
           style={styles.drawerItem}
           onPress={() => props.navigation.navigate("LIKE_SCREEN")}
         />
@@ -78,7 +81,7 @@ const CustomDrawerContent = props => {
               color={colors.iconPrimary}
             />
           )}
-          labelStyle={styles.labelStyle}
+          labelStyle={[styles.labelStyle, {color: colors.textPrimary}]}
           style={styles.drawerItem}
           onPress={() => props.navigation.navigate("LIKE_SCREEN")}
         />
@@ -91,7 +94,7 @@ const CustomDrawerContent = props => {
               color={colors.iconPrimary}
             />
           )}
-          labelStyle={styles.labelStyle}
+          labelStyle={[styles.labelStyle, {color: colors.textPrimary}]}
           style={styles.drawerItem}
           onPress={() => props.navigation.navigate("LIKE_SCREEN")}
         />
@@ -104,7 +107,7 @@ const CustomDrawerContent = props => {
               color={colors.iconPrimary}
             />
           )}
-          labelStyle={styles.labelStyle}
+          labelStyle={[styles.labelStyle, {color: colors.textPrimary}]}
           style={styles.drawerItem}
           onPress={() => props.navigation.navigate("LIKE_SCREEN")}
         />
@@ -117,7 +120,7 @@ const CustomDrawerContent = props => {
               color={colors.iconPrimary}
             />
           )}
-          labelStyle={styles.labelStyle}
+          labelStyle={[styles.labelStyle, {color: colors.textPrimary}]}
           style={styles.drawerItem}
           onPress={() => props.navigation.navigate("LIKE_SCREEN")}
         />
@@ -130,7 +133,7 @@ export default CustomDrawerContent;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.background,
+    // backgroundColor: colors.background,
     padding: spacing.lg,
   },
   headerItemContainer: {
@@ -143,7 +146,6 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     fontSize: fontSizes.md,
-    color: colors.textPrimary,
     fontFamily: fontFamilies.medium,
   },
   drawerItem: {
