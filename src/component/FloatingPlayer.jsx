@@ -1,7 +1,7 @@
 
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { fontSizes, spacing } from '../constants/dimensions';
+import { fontSizes, iconSizes, spacing } from '../constants/dimensions';
 import { fontFamilies } from '../constants/fonts';
 import {
   GoToForwardButton,
@@ -17,20 +17,20 @@ import TrackPlayer from 'react-native-track-player';
 const imgUrl =
   'https://linkstorage.linkfire.com/medialinks/images/711c0296-c883-4444-9bd4-341dcab24d0b/artwork-440x440.jpg'; // Fallback image URL
 
-const FloatingPlayer = ({ song }) => {
+const FloatingPlayer = ({ }) => {
   const {colors} = useTheme();
   const navigation = useNavigation();
-  const progress = useSharedValue(0);
+  const progress = useSharedValue(0.25);
   const min = useSharedValue(0);
   const max = useSharedValue(1);
   const isSliding = useSharedValue(false);
   const isLoading = useSharedValue(false);
-  const duration = 300; // Define the track duration
+  const duration = 300;
 
   // Handle navigating to the player screen
   const handleOpenPlayerScreen = () => {
     navigation.navigate('PLAYER_SCREEN');
-    console.log("FloatingPlayer");
+    
   };
 
   return (
@@ -56,6 +56,7 @@ const FloatingPlayer = ({ song }) => {
             isLoading.value = false;
             await TrackPlayer.seekTo(value * duration);
           }}
+          thumbWidth={25}
           style={styles.slider}
           progress={progress}
           minimumValue={min}
@@ -64,7 +65,7 @@ const FloatingPlayer = ({ song }) => {
       </View>
 
       {/* Display the selected song dynamically */}
-      {song && (
+      {/* {song && ( */}
         <View>
           <TouchableOpacity
             style={styles.container}
@@ -72,27 +73,27 @@ const FloatingPlayer = ({ song }) => {
             onPress={handleOpenPlayerScreen}
           >
             <Image
-              source={{ uri: song.artwork || imgUrl }} // Use dynamic artwork or fallback
+              source={{ uri: imgUrl || imgUrl }} // Use dynamic artwork or fallback
               style={styles.coverImg}
             />
             <View style={styles.titleContainer}>
               {/* MovingText component for the title */}
               <MovingText
-                text={song.title || 'Unknown Title'} // Dynamic title
+                text={'xyz Unknown Title xyz Unknown Title'} // Dynamic title
                 animationThreshold={20}
                 style={[styles.title, {color: colors.textPrimary}]}
               />
               {/* Artist name wrapped in Text */}
-              <Text style={[styles.artist, { color: colors.textSecondary}]}>{song.artist || 'Unknown Artist'}</Text>
+              <Text style={[styles.artist, { color: colors.textSecondary}]}>{"artist" || 'Unknown Artist'}</Text>
             </View>
             <View style={styles.playerControlContainer}>
-              <GoToPreviousButton />
-              <PlayPauseButton />
-              <GoToForwardButton />
+              <GoToPreviousButton size={iconSizes.md}/>
+              <PlayPauseButton size={iconSizes.lg}/>
+              <GoToForwardButton size={iconSizes.md}/>
             </View>
           </TouchableOpacity>
         </View>
-      )}
+      {/* )} */}
     </View>
   );
 };

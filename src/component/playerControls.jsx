@@ -8,18 +8,18 @@ import TrackPlayer, { State, Event, useTrackPlayerEvents } from 'react-native-tr
 import { useTheme } from '@react-navigation/native';
 
 // Button to skip to the previous track
-export const GoToPreviousButton = ({ size = iconSizes.xl }) => {
+export const GoToPreviousButton = ({ size = iconSizes.lg }) => {
   const {colors} = useTheme();
-  const handleSkipToPrevious = async () => {
-    try {
-      await TrackPlayer.skipToPrevious(); // Skip to previous track
-    } catch (error) {
-      console.error('Error skipping to previous track:', error);
-    }
-  };
+  // const handleSkipToPrevious = async () => {
+  //   try {
+  //     await TrackPlayer.skipToPrevious(); // Skip to previous track
+  //   } catch (error) {
+  //     console.error('Error skipping to previous track:', error);
+  //   }
+  // };
 
   return (
-    <TouchableOpacity activeOpacity={0.85} onPress={handleSkipToPrevious}>
+    <TouchableOpacity activeOpacity={0.85} >
       <MaterialCommunityIcons
         name={'skip-previous'}
         size={size}

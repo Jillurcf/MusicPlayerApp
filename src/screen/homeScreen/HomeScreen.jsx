@@ -43,9 +43,14 @@ const HomeScreen = () => {
         renderItem={({item}) => <SongCardWithCategory item={item}/>}
         contentContainerStyle={{
           paddingBottom: 400,
+          
         }}
+        
       />
-      <FloatingPlayer />
+     
+     <FloatingPlayer/>
+     
+    
     </View>
   );
 };

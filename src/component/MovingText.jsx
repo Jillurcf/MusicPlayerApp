@@ -18,7 +18,8 @@ const MovingText = ({text, animationThreshold, style}) => {
   useEffect(() => {
     if (!shouldAnimate) return;
     // We have to make AnimationForGesturet
-    translateX.value = withDelay(1000, withRepeat(withTiming(-textWidth, {
+    translateX.value = withDelay(1000, 
+      withRepeat(withTiming(-textWidth, {
         duration: 5000,
         easing:Easing.linear,
     }),
@@ -31,7 +32,7 @@ return () => {
   cancelAnimation(translateX);
   translateX.value = 0;
    };
-  }, [translateX,text,animationThreshold,textWidth]);
+  }, [translateX, text, animationThreshold, textWidth]);
 
  
 
@@ -41,8 +42,8 @@ return () => {
     };
   });
   return (
-    <Animated.Text numberOfLines={1} style={[animatedStyle, style, shouldAnimate&&{
-        width:9999,
+    <Animated.Text numberOfLines={1} style={[animatedStyle, style, shouldAnimate && {
+        width: 9999,
         paddingLeft: 16,
     }]}>
       {text}

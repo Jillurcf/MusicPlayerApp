@@ -11,19 +11,15 @@ const imgUrl =
 const SongCard = ({item, containerStyle, imageStyle, handlePlay}) => {
     const {colors} = useTheme();
 
-    // const handlePlay = async (item) => {
-    //     // console.log("item", item);
-    //     await TrackPlayer.add(item);
-    //     await TrackPlayer.play();
-    // }
+  
 
   return (
     <TouchableOpacity
     onPress={() => handlePlay(item)}
     style={[styles.container, containerStyle]}>
-     <Image source={{uri: item.artwork}} style={[styles.coverImg, imageStyle]}/>
+     <Image source={{uri: item?.artwork}} style={[styles.coverImg, imageStyle]}/>
      <Text style={[styles.title, {color: colors.textPrimary}]} numberOfLines={1}>{item?.title}</Text>
-     <Text style={[styles.artist, {color: colors.textSecondary}]}>{item.artist}</Text>
+     <Text style={[styles.artist, {color: colors.textSecondary}]}>{item?.artist}</Text>
     </TouchableOpacity>
   )
 }
